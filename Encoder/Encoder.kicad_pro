@@ -722,7 +722,7 @@
         "uuid": "dd383f0c-7a62-48d5-8ebf-05a2096c9cf7"
       }
     ],
-    "used_designators": "R1-14,#FLG1-3,#GND1,J1-3,C1-22,BT1-2,D1-6,#PWR1-17,TP1-4,TP_\\-9V1,TP_GND1-6,TP_+9V1,TP_L1,U1-2,U4,TP_R1",
+    "used_designators": "R1-50,#FLG1-3,#GND1,J1-3,C1-41,BT1-2,D1-6,#PWR1-32,TP1-4,TP_\\-9V1,TP_GND1-6,TP_+9V1,TP_L1,U1-2,U4-9,TP_R1,C220p1,TH1",
     "variants": []
   },
   "sheets": [
