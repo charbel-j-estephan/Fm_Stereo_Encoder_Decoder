@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.8,
-          "height": 1.6,
-          "width": 1.6
+          "drill": 0.0,
+          "height": 1.5,
+          "width": 1.5
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -544,9 +544,7 @@
     "meta": {
       "version": 5
     },
-    "net_colors": {
-      "+9V": "rgb(228, 255, 69)"
-    },
+    "net_colors": null,
     "netclass_assignments": null,
     "netclass_patterns": [
       {
@@ -724,7 +722,7 @@
         "uuid": "dd383f0c-7a62-48d5-8ebf-05a2096c9cf7"
       }
     ],
-    "used_designators": "R1-51,#FLG1-3,#GND1,J1-3,C1-41,BT1-2,D1-6,#PWR1-32,TP1-4,TP_\\-9V1,TP_GND1-6,TP_+9V1,TP_L1,U1-2,U4-9,TP_R1,C220p1,TH1,TPL1",
+    "used_designators": "R1-50,#FLG1-3,#GND1,J1-3,C1-41,BT1-2,D1-6,#PWR1-32,TP1-4,TP_\\-9V1,TP_GND1-6,TP_+9V1,TP_L1,U1-2,U4-9,TP_R1,C220p1,TH1",
     "variants": []
   },
   "sheets": [
