@@ -565,7 +565,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../../New folder/",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -717,8 +717,8 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "Encoder_compact.kicad_sch",
-        "name": "Root",
+        "filename": "Encoder_gen.kicad_sch",
+        "name": "Encoder_gen",
         "uuid": "dd383f0c-7a62-48d5-8ebf-05a2096c9cf7"
       }
     ],
