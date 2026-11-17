@@ -253,7 +253,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": ""
+      "sch_revision": "v3"
     },
     "layer_pairs": [],
     "layer_presets": [],
@@ -502,7 +502,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Receiver.kicad_pro",
+    "filename": "Decoder.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -581,8 +581,8 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
-      "specctra_dsn": "Receiver.dsn",
+      "plot": "./",
+      "specctra_dsn": "Decoder.dsn",
       "step": "",
       "vrml": ""
     },
@@ -743,8 +743,8 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "Receiver.kicad_sch",
-        "name": "Receiver",
+        "filename": "Decoder.kicad_sch",
+        "name": "Decoder",
         "uuid": "fa04758d-35b4-4d4e-9981-c48518dc556d"
       }
     ],
@@ -754,7 +754,7 @@
   "sheets": [
     [
       "fa04758d-35b4-4d4e-9981-c48518dc556d",
-      "Receiver"
+      "Decoder"
     ]
   ],
   "text_variables": {},
