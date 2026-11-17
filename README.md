@@ -100,7 +100,7 @@ Measured on the assembled board in the lab.
 | Mono audio at output               | 1.82 Vpp      | 1.90 Vpp          |
 | Full MPX, left only plus pilot     | 2.5 to 5 Vpp  | 2.88 Vpp          |
 
-Measured MPX output with 1 kHz on G and 2 kHz on D on the HMO722, with a 50 kHz span centred on 22.33 kHz. The upper trace is the time domain signal. The FFT below shows the two audio tones, the 19 kHz pilot and the lower sidebands of G − D near 36 and 37 kHz. The image was redrawn from a photo of the scope screen with an AI image tool for legibility.
+Measured MPX output with 1 kHz on G and 2 kHz on D on the HMO722, with a 50 kHz span centred on 22.33 kHz. The upper trace is the time domain signal. The FFT below shows the two audio tones, the 19 kHz pilot and the lower sidebands of G − D near 36 and 37 kHz.
 
 ![Measured MPX output and FFT](docs/img/measured_mpx_fft.png)
 
