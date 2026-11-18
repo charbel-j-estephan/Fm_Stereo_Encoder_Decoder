@@ -5,3 +5,23 @@ fp-info-cache
 *.lck
 _autosave-*
 *.kicad_prl.bak
+
+# Word backups
+*.wbk
+~$*
+
+# LTspice generated files
+*.raw
+*.fft
+*.log
+*.net
+*.db
+*.imp
+*.plt
+
+# Simulink cache and run outputs
+*.slxc
+slprj/
+*.autosave
+Simulation/Simulink/simulink_mpx.csv
+Simulation/Simulink/simulink_model.png

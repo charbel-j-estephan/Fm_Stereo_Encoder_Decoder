@@ -1,0 +1,22 @@
+* Behavioral CD4013B model for LTspice (FM decoder PLL dividers)
+* Logic runs on VDD..VSS. SET and RESET assumed tied to VSS.
+*
+* One positive edge D flip flop (master slave, track and hold). Starts with Q low.
+.subckt DFF D CLK Q QB VDD VSS
+Bce ce VSS V=0.5+0.5*tanh(8*(V(CLK,VSS)/V(VDD,VSS)-0.5))
+Bm VSS m I=u(time-1n)*1e-4*(V(D,VSS)/V(VDD,VSS)-V(m,VSS))*(1-(0.5+0.5*tanh(40*(V(ce,VSS)-0.4))))-u(1n-time)*1e-3*V(m,VSS)
+Cm m VSS 1p
+Rm m VSS 1e12
+Bmq mq VSS V=0.5+0.5*tanh(20*(V(m,VSS)-0.5))
+Bs VSS s I=u(time-1n)*1e-4*(V(mq,VSS)-V(s,VSS))*(0.5+0.5*tanh(40*(V(ce,VSS)-0.6)))-u(1n-time)*1e-3*V(s,VSS)
+Cs s VSS 1p
+Rs s VSS 1e12
+Bq Q VSS V=V(VDD,VSS)*(0.5+0.5*tanh(20*(V(s,VSS)-0.5)))
+Bqb QB VSS V=V(VDD,VSS)-V(Q,VSS)
+.ends DFF
+*
+* CD4013B dual D flip flop (SET and RESET assumed tied to VSS)
+.subckt CD4013 CLK1 D1 Q1 Q1B CLK2 D2 Q2 Q2B VDD VSS
+X1 D1 CLK1 Q1 Q1B VDD VSS DFF
+X2 D2 CLK2 Q2 Q2B VDD VSS DFF
+.ends CD4013

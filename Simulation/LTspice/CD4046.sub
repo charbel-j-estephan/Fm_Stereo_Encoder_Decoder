@@ -1,0 +1,15 @@
+* Behavioral CD4046B model for LTspice (FM decoder PLL)
+* Logic runs on VDD..VSS. Only the pins used by the decoder are modelled:
+* SIGIN self-biased squarer, COMPIN, PC1 (XOR), VCO.
+* VCO frequency: fmin at VCOIN = VSS, fmax at VCOIN = VDD (set on the real chip by R1, R2, C1)
+.subckt CD4046 SIGIN COMPIN PC1OUT VCOIN VCOOUT VDD VSS params: fmin=68k fmax=84k
+Rbias SIGIN mid 220k
+Bmid mid VSS V=V(VDD,VSS)/2
+Ba a VSS V=0.5+0.5*tanh(300*(V(SIGIN)-V(mid)))
+Bb b VSS V=0.5+0.5*tanh(20*(V(COMPIN)-V(mid)))
+Bpc PC1OUT VSS V=V(VDD,VSS)*(V(a,VSS)+V(b,VSS)-2*V(a,VSS)*V(b,VSS))
+Bth VSS th I=u(time-1n)*(fmin+(fmax-fmin)*min(max(V(VCOIN,VSS)/V(VDD,VSS),0),1))
+Cth th VSS 1
+Rth th VSS 1e12
+Bvco VCOOUT VSS V=V(VDD,VSS)*(0.5+0.5*tanh(40*sin(2*pi*V(th,VSS))))
+.ends CD4046
