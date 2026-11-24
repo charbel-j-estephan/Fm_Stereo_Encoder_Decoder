@@ -34,6 +34,7 @@ Simulation/Simulink/  Simulink model of the full stereo FM system
 Report/               IEEE format project report (encoder)
 docs/img/             Images used in this README
   report/             Figures taken from the project report
+  schematic/          Section views of the encoder schematic
 ```
 
 ### Encoder
@@ -42,7 +43,7 @@ docs/img/             Images used in this README
 | ----------------------------------------------- | ---------------------------------- |
 | `Encoder.kicad_pro`, `.kicad_sch`, `.kicad_pcb` | KiCad 10 project                   |
 | `MC1496.kicad_sym`, `R0.kicad_sym`              | Symbol libraries the project needs |
-| `Encoder_Schematic_color.pdf`                   | Full schematic in colour           |
+| `Encoder_Schematic_color.pdf`                   | Full schematic in colour, A2 sheet |
 | `Encoder_PCB_top_1to1_color.pdf`                | Top side of the board at 1:1 scale |
 | `Encoder_3D_top.png`                            | 3D render of the board             |
 | `FM_Encoder_Buy_List.xlsx`                      | Parts list with prices             |
@@ -59,27 +60,39 @@ Signal chain:
 6. MPX summer adds G + D, the modulated G − D and the pilot
 7. NE5532 output low pass filters, then out on J4
 
-#### Encoder stages
+#### Encoder schematic
 
-Input protection and 15 kHz low pass filter
+The whole encoder fits on one A2 sheet. Each stage sits in its own framed section with a title and a one line note, and every stage output has a named test point.
 
-![Input protection and 15 kHz low pass filter](docs/img/report/fig04_input_filter.png)
+![Full encoder schematic](docs/img/schematic/encoder_schematic_full.png)
 
-Sum and difference op amp matrix
+Audio input and 15 kHz low pass filters. AC coupling, diode clamps to the ±9 V rails and a unity gain buffer on each channel, then two Sallen Key stages.
 
-![Sum and difference op amp matrix](docs/img/report/fig05_sum_difference_matrix.png)
+![Audio input and 15 kHz low pass filters](docs/img/schematic/enc_01_input_lpf.png)
 
-PLL based 38 kHz carrier generator locked to the 19 kHz pilot
+Sum and difference matrix. U6 makes G + D and U5 makes G − D.
 
-![PLL based 38 kHz carrier generator](docs/img/report/fig06_pll_carrier.png)
+![Sum and difference matrix](docs/img/schematic/enc_02_matrix.png)
 
-MC1496 balanced modulator for the difference signal
+38 kHz balanced modulator. The MC1496 puts G − D on the 38 kHz carrier, and U10A turns its differential output into one signal.
 
-![MC1496 balanced modulator](docs/img/report/fig07_balanced_modulator.png)
+![38 kHz balanced modulator](docs/img/schematic/enc_03_modulator.png)
 
-MPX summer and output low pass filter
+MPX summer and output filter. U8B adds G + D, the DSB signal and the 19 kHz pilot, U8A inverts it back, and three Sallen Key stages drive J4.
 
-![MPX summer and output low pass filter](docs/img/report/fig08_mpx_summer_output_filter.png)
+![MPX summer and output filter](docs/img/schematic/enc_04_mpx_output.png)
+
+PLL. The CD4046 VCO runs at 38 kHz, and the CD4013 divides it by 2 so it locks to the 19 kHz pilot. JP1 picks the VCO or its inverted copy, then R54 and R55 set the carrier level.
+
+![PLL 38 kHz subcarrier recovery](docs/img/schematic/enc_05_pll.png)
+
+Power input and decoupling. Reverse protection diodes, 22 µF bulk caps and a 100 nF pair on every op amp.
+
+![Power input and decoupling](docs/img/schematic/enc_06_power.png)
+
+Test points, one header pin per stage output plus the ground pins.
+
+![Test points](docs/img/schematic/enc_07_test_points.png)
 
 Board facts:
 
